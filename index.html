@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+  <meta name='theme-color' content='#b5e2c1'>
+  <meta name='description' content='Hiking @Salzburg, Austria'>
+  <meta name='author' content='Ravi Pandey, UPOL, Czechia'>
+
+  <link rel="apple-touch-icon" sizes="57x57" href="./src/img/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="./src/img/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="./src/img/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="./src/img/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="./src/img/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="./src/img/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="./src/img/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="./src/img/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="./src/img/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="./src/img/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./src/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="./src/img/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./src/img/favicon-16x16.png">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/Hike1">
+  <meta name="theme-color" content="#ffffff">
+
+  <meta name='apple-mobile-web-app-title' content='Hiking trails'>
+  <meta name='mobile-web-app-capable' content='yes'>
+  <meta name='apple-mobile-web-app-status-bar-style' content='#b5e2c1'>
+
+  <title>Hiking trails</title>
+
+  <link rel='stylesheet' href='https://js.arcgis.com/4.20/esri/css/main.css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet'>
+<% for (var css in htmlWebpackPlugin.files.css) { %>
+  <link href="<%= htmlWebpackPlugin.files.css[css] %>" rel="stylesheet">
+<% } %>
+</head>
+
+<body>
+
+  <div id='scenePanel'></div>
+
+  <div class='menuPanel'>
+
+    <h1 class='section title'>Hiking @Salzburg,Austria</h1>
+
+    <ul class='menuTabs section'>
+      <li class='active' data-tab='selectionPanel'>Hikes</li>
+      <li data-tab='detailPanel'>Details</li>
+      <li data-tab='basemapPanel'>Basemap</li>
+    </ul>
+
+    <div id='selectionPanel' class='panel invisible'>
+      <div id='trailsPanel'></div>
+      <button aria-label='Remove trail button' class='removeSelected' disabled>Remove selected trail</button>
+      <div id='filterPanel'></div>
+    </div>
+
+    <div id='detailPanel' class='panel invisible'>
+      <h1 class='center' id='detailTitle'></h1>
+      <div id='detailInfograph'></div>
+      <div id='detailDescription'></div>
+      <div id='detailElevationProfile'></div>
+    </div>
+
+    <div id='basemapPanel' class='panel invisible'>
+      <div class='basemaps'></div>
+      <div class='layers'></div>
+    </div>
+
+  </div>
+
+  <div class='smallMenu'>
+    <button aria-label='Set initial extent' id='home' class='fa fa-home'></button>
+    <button aria-label='Show details' id='details' class='fa fa-binoculars mobileButton'></button>
+    <button aria-label='Show information about this app' id='about' class='fa fa-info'></button>
+  </div>
+
+  <span class='share'>
+    <a aria-label='Fork me on github' class='fa fa-github-square' href='https://github.com/exploringravi' target='_blank'></a>
+    <a aria-label='Tweet about this app' class='twitter-share-button' href='https://twitter.com/TheDesignHut'>Tweet</a>
+  </span>
+
+  <div id='starterPage' class='starter'>
+    <div class='inner'>
+      <div class='cell'>
+        <h1 class='heading-starter center'>Hiking in Salzburg, Austria</h1>
+        <p class='description lead top center'>This app shows the hiking trails for the Beautiful Austrian City, Salzburg. 
+        </p>  
+          <p class='description center'>"Starting point for all hikes: centre of Koppl Trail no. 70 Gaisbergspitze and Nockstein , 3 hrs, height difference: 500 m. Moderate beautiful mountain hike with glorious view to the city of Salzburg and the Alps. Return on the same route or trail no. 71 (1.45 hrs)."
+        </p>
+        <p id='startApp' class='lead center'>
+          <button id='showMap'>Let's explore............</button>
+        </p>
+      </div>
+    </div>
+    <div class='foot'>
+      <div class='center'>
+        <p>
+          <a href='http://developers.arcgis.com/javascript'>
+            <img src='./src/img/CDE.png' alt='CDE logo'>
+          </a>
+          <p class='credit center'>
+            This web-app is a part of a thesis work done by Ravi Pandey, Under the guidance of Dr. Rostislav Netek and Dr. Hermann Klug.
+          </p>
+          
+      </p>
+      </div>
+    </div>
+  </div>
+
+  <div id='credentialsPanel'>
+    <span class="esri-icon-close" id="close"></span>
+    <h1>Disclaimer</h1>
+    <p>This is a web application made at the UPOL, Czech and PLUS, Austria for visualizing hiking trails in the the Koppal area of Salzburg, and this is a part of an academic exercise.
+      It is built on top of <a href="https://developers.arcgis.com/javascript/" target="_blank">ArcGIS Maps SDK for JavaScript</a>.</p>
+    <h1> Credits </h1>
+      <p>Data for the hiking trails was kindly provided by the <a href="https://www.salzburg.gv.at/" target="_blank">PLUS, and collected by primary survey.</a>. </p>
+      <p>Basemaps and satellite image by <a href="https://www.esri.com/" target="_blank">ESRI</a></p>
+      <p><a href="https://fontawesome.com/" target="_blank">Font Awesome</a> was used for the icons.</p>
+    </ul>
+  </div>
+
+  <!--load ArcGIS API for JavaScript-->
+  <script>
+    var dojoConfig = {
+      has: {
+        "esri-promise-compatibility": 1
+      },
+      async: true
+    };
+  </script>
+  <script type='text/javascript' rel=preload src='https://js.arcgis.com/4.20/'></script>
+  <!--load app-->
+  <script>
+      var scripts = document.getElementsByTagName('script');
+  var thisScript = scripts[scripts.length-1];
+
+  var newScript = document.createElement('script');
+  newScript.src = thisScript.dataset.main;
+  document.body.appendChild(newScript);
+    require([<% for (var chunk in htmlWebpackPlugin.files.js) { %>
+      '<%= htmlWebpackPlugin.files.js[chunk] %>',
+    <% } %>], function (main) { });
+    (function() {
+
+})();
+
+  </script>
+
+  <!--script for Twitter sharing link-->
+  <script>
+    window.twttr = (function (d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0],
+        t = window.twttr || {};
+      if (d.getElementById(id)) return t;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = 'https://platform.twitter.com/widgets.js';
+      fjs.parentNode.insertBefore(js, fjs);
+
+      t._e = [];
+      t.ready = function (f) {
+        t._e.push(f);
+      };
+
+      return t;
+    }(document, 'script', 'twitter-wjs'));
+  </script>
+</body>
+
+</html>
