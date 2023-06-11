@@ -77,7 +77,7 @@ export default class SelectionPanel {
 
   displayAppInfo() {
     if (this.state.device === "mobilePortrait") {
-      this.detailInfograph.innerHTML = "This app shows the hikes in the Swiss National Park. Select a hike on the map to find out more about it.";
+      this.detailInfograph.innerHTML = "This app shows the hikes in the Koppl area of Salzburg, Austria. Select a hike on the map to find out more about it.";
     } else {
       this.detailInfograph.innerHTML = "Select a hike in the map or in the Hikes panel to see more details about it.";
     }

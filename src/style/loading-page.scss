@@ -10,7 +10,7 @@
   bottom: 0;
   display: table;
   font-size: $medium-font;
-  background-image: url(../img/background.jpg) ;
+  background-image: url(../img/topo.png) ;
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -47,7 +47,7 @@
   }
 
   .description {
-    font-size: $big-font;
+    font-size: $medium-font;
     line-height: $big-font;
   }
 
@@ -57,7 +57,7 @@
     border: none;
     border-radius: 30px;
     font-size: $small-font;
-    color: white;
+    color: rgb(31, 29, 29);
     cursor: pointer;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease-in-out;
@@ -101,7 +101,7 @@
     text-align: right;
   }
   .credit {
-    font-size: 16px;
+    font-size: 12px;
     color: #fff;
     font-style: italic;
     margin-top: 20px;

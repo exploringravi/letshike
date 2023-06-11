@@ -30,6 +30,7 @@
   <meta name='apple-mobile-web-app-title' content='Hiking'>
   <meta name='mobile-web-app-capable' content='yes'>
   <meta name='apple-mobile-web-app-status-bar-style' content='#b5e2c1'>
+  
 
   <title>Hiking trails</title>
 
@@ -87,11 +88,25 @@
         <h1 class='heading-starter center'>Hiking in Salzburg, Austria</h1>
         <p class='description lead top center'>This app shows the hiking trails for the Beautiful Austrian City, Salzburg. 
         </p>  
-          <p class='description center'>"Starting point for all hikes: centre of Koppl Trail no. 70 Gaisbergspitze and Nockstein , 3 hrs, height difference: 500 m. Moderate beautiful mountain hike with glorious view to the city of Salzburg and the Alps. Return on the same route or trail no. 71 (1.45 hrs)."
-        </p>
+        <style>
+          .center {
+            text-align: justify;
+            line-height: 1.5;
+          }
+          
+          button {
+            border-radius: 20px;
+            padding: 10px 20px;
+          }
+          </style>
+          
+          <p class='center'>Nockstein Mountain is a popular hiking destination in Salzburg, Austria. The trail is well-maintained and takes around 2 hours to complete. The hike offers breathtaking views of the Salzach River, the city of Salzburg, and the surrounding mountain ranges. At the summit, hikers can enjoy a panoramic view and a small restaurant.<br><br>
+          To reach Nockstein Mountain from Salzburg, you can take bus number 28 or 840 from Salzburg city center to the village of Fürstenbrunn. From there, it's a short walk to the start of the hiking trail. Alternatively, you can drive to Fürstenbrunn and park your car at the parking lot near the start of the trail. The village of Fürstenbrunn is located about 10 kilometers (6.2 miles) southeast of Salzburg, and the journey takes approximately 30 minutes by bus or car.</p>
+          
+          <p class='center'>For public transport, you can check tickets here: <button onclick="window.open('https://salzburg-verkehr.at/en/', '_blank')">Visit Salzburg Verkehr</button></p>
+          
         <p id='startApp' class='lead center'>
-          <button id='showMap'>Let's explore............</button>
-        </p>
+          <button id='showMap'>EXPLORE THE TRAILS</button>
       </div>
     </div>
     <div class='foot'>
@@ -118,6 +133,7 @@
       <p>Data for the hiking trails was kindly provided by the <a href="https://www.salzburg.gv.at/" target="_blank">PLUS, and collected by primary survey.</a>. </p>
       <p>Basemaps and satellite image by <a href="https://www.esri.com/" target="_blank">ESRI</a></p>
       <p><a href="https://fontawesome.com/" target="_blank">Font Awesome</a> was used for the icons.</p>
+      <p></p> To acknowledge the inspiration for the web application design idea, credit goes to Raluca Nicola, Web Cartographer at Esri. <p></p>
     </ul>
   </div>
 
